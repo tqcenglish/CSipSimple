@@ -9,8 +9,8 @@ CSipSimple for Android Studio Project
     	
     	<string  xm:lns:ns0="http://schemas.android.com/tools" />
 to
-
 	<resources xmlns:ns0="http://schemas.android.com/tools"/>
+
 
 * delete jni folder
 * add jniLibs folder and  org.pjsip.pjsua to java folder
