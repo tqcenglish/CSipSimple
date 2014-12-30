@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2010 Regis Montoya (aka r3gis - www.r3gis.fr) 
+	
+	This file is part of CSipSimple.
+    CSipSimple is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+	If you own a pjsip commercial license you can also redistribute it
+	and/or modify it under the terms of the GNU Lesser General Public License
+	as an android library.
+
+    CSipSimple is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CSipSimple.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <ImageButton
+            android:id="@+id/button1"
+            style="@style/DialtactsDialpadButtonStyle"
+            android:contentDescription="@string/description_image_button_one"
+            android:src="@drawable/dial_num_1" />
+
+        <ImageButton
+            android:id="@+id/button2"
+            style="@style/DialtactsDialpadButtonStyle"
+            android:contentDescription="@string/description_image_button_two"
+            android:src="@drawable/dial_num_2" />
+
+        <ImageButton
+            android:id="@+id/button3"
+            style="@style/DialtactsDialpadButtonStyle"
+            android:contentDescription="@string/description_image_button_three"
+            android:src="@drawable/dial_num_3" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <ImageButton
+            android:id="@+id/button4"
+            style="@style/DialtactsDialpadButtonStyle"
+            android:contentDescription="@string/description_image_button_four"
+            android:src="@drawable/dial_num_4" />
+
+        <ImageButton
+            android:id="@+id/button5"
+            style="@style/DialtactsDialpadButtonStyle"
+            android:contentDescription="@string/description_image_button_five"
+            android:src="@drawable/dial_num_5" />
+
+        <ImageButton
+            android:id="@+id/button6"
+            style="@style/DialtactsDialpadButtonStyle"
+            android:contentDescription="@string/description_image_button_six"
+            android:src="@drawable/dial_num_6" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <ImageButton
+            android:id="@+id/button7"
+            style="@style/DialtactsDialpadButtonStyle"
+            android:contentDescription="@string/description_image_button_seven"
+            android:src="@drawable/dial_num_7" />
+
+        <ImageButton
+            android:id="@+id/button8"
+            style="@style/DialtactsDialpadButtonStyle"
+            android:contentDescription="@string/description_image_button_eight"
+            android:src="@drawable/dial_num_8" />
+
+        <ImageButton
+            android:id="@+id/button9"
+            style="@style/DialtactsDialpadButtonStyle"
+            android:contentDescription="@string/description_image_button_nine"
+            android:src="@drawable/dial_num_9" />
+    </TableRow>
+
+    <TableRow
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1" >
+
+        <ImageButton
+            android:id="@+id/buttonstar"
+            style="@style/DialtactsDialpadButtonStyle"
+            android:contentDescription="@string/description_image_button_star"
+            android:src="@drawable/dial_num_star" />
+
+        <ImageButton
+            android:id="@+id/button0"
+            style="@style/DialtactsDialpadButtonStyle"
+            android:contentDescription="@string/description_image_button_zero"
+            android:src="@drawable/dial_num_0" />
+
+        <ImageButton
+            android:id="@+id/buttonpound"
+            style="@style/DialtactsDialpadButtonStyle"
+            android:contentDescription="@string/description_image_button_pound"
+            android:src="@drawable/dial_num_pound" />
+    </TableRow>
+
+</TableLayout>

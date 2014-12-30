@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2010 Regis Montoya (aka r3gis - www.r3gis.fr)
+	
+	
+	This file is part of CSipSimple. CSipSimple is free software: you can
+	redistribute it and/or modify it under the terms of the GNU General
+	Public License as published by the Free Software Foundation, either
+	version 3 of the License, or (at your option) any later version.
+
+	CSipSimple is distributed in the hope that it will be useful, but
+	WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+	General Public License for more details. You should have received a
+	copy of the GNU General Public License along with CSipSimple. If not,
+	see <http://www.gnu.org/licenses/>.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:key="perfs"
+        android:title="@string/perfs" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="lock_wifi"
+            android:summary="@string/lock_wifi_desc"
+            android:title="@string/lock_wifi" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="lock_wifi_perfs"
+            android:summary="@string/lock_wifi_perfs_desc"
+            android:title="@string/lock_wifi_perfs" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="transport"
+        android:title="@string/transport" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="enable_udp"
+            android:summary="@string/enable_udp_desc"
+            android:title="@string/enable_udp" />
+
+        <EditTextPreference
+            android:defaultValue="0"
+            android:key="network_udp_transport_port"
+            android:numeric="integer"
+            android:summary="@string/network_udp_transport_port_desc"
+            android:title="@string/network_udp_transport_port" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="enable_tcp"
+            android:summary="@string/enable_tcp_desc"
+            android:title="@string/enable_tcp" />
+
+        <EditTextPreference
+            android:defaultValue="0"
+            android:key="network_tcp_transport_port"
+            android:numeric="integer"
+            android:summary="@string/network_tcp_transport_port_desc"
+            android:title="@string/network_tcp_transport_port" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="disable_tcp_switch"
+            android:summary="@string/disable_tcp_switch_desc"
+            android:title="@string/disable_tcp_switch" />
+
+        <!-- Media transport -->
+        <EditTextPreference
+            android:defaultValue="4000"
+            android:key="network_rtp_port"
+            android:numeric="integer"
+            android:summary="@string/network_rtp_port_desc"
+            android:title="@string/network_rtp_port" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_ipv6"
+            android:summary="@string/use_ipv6_desc"
+            android:title="@string/use_ipv6" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="enable_dns_srv"
+            android:summary="@string/enable_dns_srv_desc"
+            android:title="@string/enable_dns_srv" />
+
+        <EditTextPreference
+            android:defaultValue=""
+            android:key="override_nameserver"
+            android:summary="@string/override_nameserver_desc"
+            android:title="@string/override_nameserver" />
+        <EditTextPreference
+            android:defaultValue="0"
+            android:key="network_route_polling"
+            android:numeric="signed"
+            android:summary="@string/network_route_polling_desc"
+            android:title="@string/network_route_polling" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="enable_qos"
+            android:summary="@string/enable_qos_desc"
+            android:title="@string/enable_qos" />
+
+        <EditTextPreference
+            android:defaultValue="26"
+            android:key="dscp_val"
+            android:numeric="signed"
+            android:summary="@string/dscp_val_desc"
+            android:title="@string/dscp_val" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_compact_form"
+            android:summary="@string/use_compact_form_desc"
+            android:title="@string/use_compact_form" />
+
+        <EditTextPreference
+            android:defaultValue="CSipSimple"
+            android:key="user_agent"
+            android:summary="@string/user_agent_desc"
+            android:title="@string/user_agent" />
+    </PreferenceCategory>
+
+    <PreferenceScreen
+        android:key="keep_alive"
+        android:summary="@string/keep_alive_interval_desc"
+        android:title="@string/keep_alive_interval" >
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="secure_transport"
+        android:summary="@string/secure_transport_desc"
+        android:title="@string/secure_transport" >
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="sip_protocol"
+        android:summary="@string/sip_protocol_desc"
+        android:title="@string/sip_protocol" >
+    </PreferenceScreen>
+
+    <PreferenceCategory
+        android:key="nat_traversal"
+        android:title="@string/nat_traversal" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="enable_ice"
+            android:summary="@string/enable_ice_desc"
+            android:title="@string/enable_ice" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:dependency="enable_ice"
+            android:key="ice_aggressive"
+            android:summary="@string/ice_aggressive_desc"
+            android:title="@string/ice_aggressive" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="enable_stun"
+            android:summary="@string/enable_stun_desc"
+            android:title="@string/enable_stun" />
+
+        <EditTextPreference
+            android:defaultValue="stun.counterpath.com"
+            android:dependency="enable_stun"
+            android:key="stun_server"
+            android:summary="@string/stun_server_desc"
+            android:title="@string/stun_server" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:dependency="enable_stun"
+            android:key="enable_stun2"
+            android:summary="@string/enable_stun2_desc"
+            android:title="@string/enable_stun2" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="enable_turn"
+            android:summary="@string/enable_turn_desc"
+            android:title="@string/enable_turn" />
+
+        <EditTextPreference
+            android:defaultValue=""
+            android:dependency="enable_turn"
+            android:key="turn_server"
+            android:summary="@string/turn_server_desc"
+            android:title="@string/turn_server" />
+        <EditTextPreference
+            android:defaultValue=""
+            android:dependency="enable_turn"
+            android:key="turn_username"
+            android:summary="@string/turn_username_desc"
+            android:title="@string/turn_username" >
+        </EditTextPreference>
+        <EditTextPreference
+            android:defaultValue=""
+            android:dependency="enable_turn"
+            android:key="turn_password"
+            android:summary="@string/turn_password_desc"
+            android:title="@string/turn_password" >
+        </EditTextPreference>
+
+        <ListPreference
+            android:defaultValue="0"
+            android:dependency="enable_turn"
+            android:entries="@array/transport_choices"
+            android:entryValues="@array/transport_values"
+            android:key="turn_transport"
+            android:summary="@string/turn_transport_desc"
+            android:title="@string/turn_transport" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="for_incoming"
+        android:title="@string/for_incomings" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="use_wifi_in"
+            android:summary="@string/use_wifi_in_desc"
+            android:title="@string/use_wifi" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_3g_in"
+            android:summary="@string/use_3g_disclamer"
+            android:title="@string/use_3g" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_gprs_in"
+            android:summary="@string/use_3g_disclamer"
+            android:title="@string/use_gprs" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_edge_in"
+            android:summary="@string/use_3g_disclamer"
+            android:title="@string/use_edge" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="use_other_in"
+            android:summary="@string/use_other_in_desc"
+            android:title="@string/use_other" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_anyway_in"
+            android:summary="@string/use_anyway_desc"
+            android:title="@string/use_anyway" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="use_roaming_in"
+            android:summary="@string/use_roaming_desc"
+            android:title="@string/use_roaming" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="for_outgoing"
+        android:title="@string/for_outgoings" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="use_wifi_out"
+            android:summary="@string/use_wifi_out_desc"
+            android:title="@string/use_wifi" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_3g_out"
+            android:summary="@string/use_3g_disclamer"
+            android:title="@string/use_3g" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_gprs_out"
+            android:summary="@string/use_3g_disclamer"
+            android:title="@string/use_gprs" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_edge_out"
+            android:summary="@string/use_3g_disclamer"
+            android:title="@string/use_edge" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="use_other_out"
+            android:summary="@string/use_other_out_desc"
+            android:title="@string/use_other" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_anyway_out"
+            android:summary="@string/use_anyway_desc"
+            android:title="@string/use_anyway" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="use_roaming_out"
+            android:summary="@string/use_roaming_desc"
+            android:title="@string/use_roaming" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

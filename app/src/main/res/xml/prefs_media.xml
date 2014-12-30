@@ -1,0 +1,223 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2010 Regis Montoya (aka r3gis - www.r3gis.fr)
+
+	This file is part of CSipSimple. 
+	CSipSimple is free software: you can
+	redistribute it and/or modify it under the terms of the GNU General
+	Public License as published by the Free Software Foundation, either
+	version 3 of the License, or (at your option) any later version.
+
+	CSipSimple is distributed in the hope that it will be useful, but
+	WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+	General Public License for more details. You should have received a
+	copy of the GNU General Public License along with CSipSimple. If not,
+	see <http://www.gnu.org/licenses/>.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:key="audio_quality"
+        android:title="@string/audio_quality" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="echo_cancellation"
+            android:summary="@string/echo_cancellation_desc"
+            android:title="@string/echo_cancellation" />
+
+        <EditTextPreference
+            android:defaultValue="200"
+            android:key="echo_cancellation_tail"
+            android:numeric="signed"
+            android:summary="@string/echo_cancellation_tail_desc"
+            android:title="@string/echo_cancellation_tail" />
+
+        <ListPreference
+            android:defaultValue="2"
+            android:entries="@array/echo_mode_choices"
+            android:entryValues="@array/echo_mode_values"
+            android:key="echo_mode"
+            android:summary="@string/echo_mode_desc"
+            android:title="@string/echo_mode" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="enable_vad"
+            android:summary="@string/enable_vad_desc"
+            android:title="@string/enable_vad" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:dependency="echo_cancellation"
+            android:key="enable_ns"
+            android:summary="@string/enable_ns_desc"
+            android:title="@string/enable_ns" />
+
+        <EditTextPreference
+            android:defaultValue="4"
+            android:key="snd_media_quality"
+            android:numeric="signed"
+            android:summary="@string/snd_media_quality_desc"
+            android:title="@string/snd_media_quality" />
+
+        <ListPreference
+            android:defaultValue="8000"
+            android:entries="@array/clock_rate_choices"
+            android:entryValues="@array/clock_rate_values"
+            android:key="snd_clock_rate"
+            android:summary="@string/snd_clock_rate_desc"
+            android:title="@string/snd_clock_rate" />
+
+        <EditTextPreference
+            android:defaultValue="20"
+            android:key="snd_ptime"
+            android:numeric="signed"
+            android:summary="@string/snd_ptime_desc"
+            android:title="@string/snd_ptime" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="has_io_queue"
+            android:summary="@string/has_io_queue_desc"
+            android:title="@string/has_io_queue" />
+    </PreferenceCategory>
+
+    <EditTextPreference
+        android:defaultValue="1"
+        android:key="media_thread_count"
+        android:numeric="signed"
+        android:summary="@string/media_thread_count_desc"
+        android:title="@string/media_thread_count" />
+
+    <CheckBoxPreference
+        android:defaultValue="true"
+        android:key="codecs_per_bandwidth"
+        android:summary="@string/codecs_per_bandwidth_desc"
+        android:title="@string/codecs_per_bandwidth" />
+
+    <PreferenceScreen
+        android:key="codecs_list"
+        android:summary="@string/codecs_availability_text"
+        android:title="@string/codecs" >
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:dependency="codecs_per_bandwidth"
+        android:key="band_types"
+        android:title="@string/codecs_band_types" >
+    </PreferenceScreen>
+    <PreferenceScreen
+        android:key="codecs_extra_settings"
+        android:title="@string/codecs_extra_settings" >
+        <PreferenceCategory android:title="@string/frames_per_rtp_packet" >
+            <EditTextPreference
+                android:key="codec_g729_8000_fpp"
+                android:numeric="signed"
+                android:title="@string/g729_frame_per_packet" />
+            <EditTextPreference
+                android:key="codec_ilbc_8000_fpp"
+                android:numeric="signed"
+                android:title="@string/ilbc_frame_per_packet" />
+        </PreferenceCategory>
+        <PreferenceCategory android:title="@string/video" >
+            <ListPreference
+                android:defaultValue="66"
+                android:entries="@array/h264_profile_choices"
+                android:entryValues="@array/h264_profile_values"
+                android:key="codec_h264_profile"
+                android:title="@string/codec_h264_profile" />
+            <ListPreference
+                android:defaultValue="0"
+                android:entries="@array/h264_level_choices"
+                android:entryValues="@array/h264_level_values"
+                android:key="codec_h264_level"
+                android:title="@string/codec_h264_level" />
+
+            <EditTextPreference
+                android:defaultValue="0"
+                android:key="codec_h264_bitrate"
+                android:numeric="signed"
+                android:summary="@string/codec_h264_bitrate_desc"
+                android:title="@string/codec_h264_bitrate" />
+        </PreferenceCategory>
+    </PreferenceScreen>
+
+    <PreferenceCategory
+        android:key="audio_volume"
+        android:title="@string/audio_volume" >
+        <com.csipsimple.widgets.SeekBarPreference
+            android:defaultValue="1.0"
+            android:key="snd_mic_level"
+            android:max="15"
+            android:summary="@string/snd_mic_level_desc"
+            android:text="dB"
+            android:title="@string/snd_mic_level" />
+        <com.csipsimple.widgets.SeekBarPreference
+            android:defaultValue="1.0"
+            android:key="snd_speaker_level"
+            android:max="15"
+            android:summary="@string/snd_speaker_level_desc"
+            android:text="dB"
+            android:title="@string/snd_speaker_level" />
+        <com.csipsimple.widgets.SeekBarPreference
+            android:defaultValue="1.0"
+            android:key="snd_bt_mic_level"
+            android:max="15"
+            android:summary="@string/snd_mic_level_desc"
+            android:text="dB"
+            android:title="@string/snd_bt_mic_level" />
+        <com.csipsimple.widgets.SeekBarPreference
+            android:defaultValue="1.0"
+            android:key="snd_bt_speaker_level"
+            android:max="15"
+            android:summary="@string/snd_speaker_level_desc"
+            android:text="dB"
+            android:title="@string/snd_bt_speaker_level" />
+        <com.csipsimple.widgets.SeekBarPreference
+            android:defaultValue="8.0"
+            android:key="snd_stream_level"
+            android:max="10"
+            android:summary="@string/snd_stream_level_desc"
+            android:title="@string/snd_stream_level" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_soft_volume"
+            android:summary="@string/use_soft_volume_desc"
+            android:title="@string/use_soft_volume" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="misc"
+        android:title="@string/misc" >
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="auto_connect_bluetooth"
+            android:summary="@string/auto_connect_bluetooth_desc"
+            android:title="@string/auto_connect_bluetooth" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="auto_connect_speaker"
+            android:summary="@string/auto_connect_speaker_desc"
+            android:title="@string/auto_connect_speaker" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="auto_detect_speaker"
+            android:summary="@string/auto_detect_speaker_desc"
+            android:title="@string/auto_detect_speaker" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="video_category"
+        android:title="@string/video" >
+        <ListPreference
+            android:defaultValue=""
+            android:key="video_capture_size"
+            android:summary="@string/video_capture_size_desc"
+            android:title="@string/video_capture_size" />
+    </PreferenceCategory>
+
+    <PreferenceScreen
+        android:key="audio_troubleshooting"
+        android:summary="@string/audio_troubleshooting_desc"
+        android:title="@string/audio_troubleshooting" >
+    </PreferenceScreen>
+
+</PreferenceScreen>

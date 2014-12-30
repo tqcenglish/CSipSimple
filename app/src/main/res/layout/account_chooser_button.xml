@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2010-2012 Regis Montoya (aka r3gis - www.r3gis.fr)
+	This file is part of CSipSimple.
+	 
+	CSipSimple is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+	If you own a pjsip commercial license you can also redistribute it
+	and/or modify it under the terms of the GNU Lesser General Public License
+	as an android library.
+	
+	CSipSimple is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	 
+	You should have received a copy of the GNU General Public License
+	along with CSipSimple.  If not, see <http://www.gnu.org/licenses/>.
+-->
+
+<merge xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <ImageView
+        android:id="@+id/quickaction_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:antialias="true"
+        android:contentDescription="@string/empty_description"
+        android:scaleType="fitCenter" />
+
+    <TextView
+        android:id="@+id/quickaction_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top|center"
+        android:layout_marginTop="2dp"
+        android:layout_weight="0"
+        android:textColor="#ffeeeeee"
+        android:textSize="12dp" />
+
+</merge>

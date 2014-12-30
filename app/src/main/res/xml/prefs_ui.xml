@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+		Copyright (C) 2010 Regis Montoya (aka r3gis - www.r3gis.fr)
+		
+		This file is part of CSipSimple.
+
+		CSipSimple is free software: you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation, either
+		version 3 of the License, or (at your option) any later version.
+
+		CSipSimple is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with CSipSimple. If not,
+		see <http://www.gnu.org/licenses/>. 
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory
+        android:key="android_integration"
+        android:title="@string/native_dialer_integration" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="integrate_with_native_dialer"
+            android:summary="@string/integrate_with_native_dialer_desc"
+            android:title="@string/integrate_with_native_dialer" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="integrate_tel_privileged"
+            android:summary="@string/integrate_tel_privileged_desc"
+            android:title="@string/integrate_tel_privileged" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="integrate_with_native_calllogs"
+            android:summary="@string/integrate_with_native_calllogs_desc"
+            android:title="@string/integrate_with_native_calllogs" />
+
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/gsm_integration_type_choices"
+            android:entryValues="@array/gsm_integration_type_values"
+            android:key="gsm_integration_type"
+            android:summary="@string/gsm_integration_type_desc"
+            android:title="@string/gsm_integration_type" />
+        <ListPreference
+            android:defaultValue=""
+            android:key="selected_theme"
+            android:summary="@string/theme_desc"
+            android:title="@string/theme" />
+
+        <PreferenceScreen
+            android:key="obtain_themes"
+            android:summary="@string/obtain_themes_desc"
+            android:title="@string/obtain_themes" >
+            <intent
+                android:action="android.intent.action.VIEW"
+                android:data="market://search?q=[Theme CSipSimple]" />
+        </PreferenceScreen>
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/general_ui" >
+        <RingtonePreference
+            android:key="ringtone"
+            android:summary="@string/ringtone_desc"
+            android:title="@string/ringtone" >
+        </RingtonePreference>
+
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/dial_press_mode_choices"
+            android:entryValues="@array/dial_press_mode_values"
+            android:key="dial_press_tone_mode"
+            android:summary="@string/dial_press_tone_desc"
+            android:title="@string/dial_press_tone" />
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/dial_press_mode_choices"
+            android:entryValues="@array/dial_press_mode_values"
+            android:key="dial_press_vibrate_mode"
+            android:summary="@string/dial_press_vibrate_desc"
+            android:title="@string/dial_press_vibrate" />
+        <ListPreference
+            android:defaultValue="2"
+            android:entries="@array/dial_press_mode_choices"
+            android:entryValues="@array/dial_press_mode_values"
+            android:key="dtmf_press_tone_mode"
+            android:summary="@string/dtmf_press_tone_desc"
+            android:title="@string/dtmf_press_tone" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="start_with_text_dialer"
+            android:summary="@string/start_with_text_dialer_desc"
+            android:title="@string/start_with_text_dialer" />
+
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/unlocker_type_choices"
+            android:entryValues="@array/unlocker_type_values"
+            android:key="unlocker_type"
+            android:summary="@string/use_alternate_unlocker_desc"
+            android:title="@string/use_alternate_unlocker" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="prevent_screen_rotation"
+            android:summary="@string/prevent_screen_rotation_desc"
+            android:title="@string/prevent_screen_rotation" />
+    </PreferenceCategory>
+    <PreferenceCategory
+        android:key="advanced_ui"
+        android:title="@string/advanced_ui" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="integrate_with_native_music"
+            android:summary="@string/integrate_with_native_music_desc"
+            android:title="@string/integrate_with_native_music" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="keep_awake_incall"
+            android:summary="@string/keep_awake_incall_desc"
+            android:title="@string/keep_awake_incall" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="invert_proximity_sensor"
+            android:summary="@string/invert_proximity_sensor_desc"
+            android:title="@string/invert_proximity_sensor" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="use_partial_wake_lock"
+            android:summary="@string/use_partial_wake_lock_desc"
+            android:title="@string/use_partial_wake_lock" />
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="icon_in_status_bar"
+            android:summary="@string/display_icon_in_status_bar_desc"
+            android:title="@string/display_icon_in_status_bar" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="icon_in_status_bar_nbr"
+            android:summary="@string/display_icon_in_status_bar_nbr_desc"
+            android:title="@string/display_icon_in_status_bar_nbr" />
+
+        <EditTextPreference
+            android:defaultValue="1"
+            android:key="log_level"
+            android:numeric="signed"
+            android:summary="@string/log_level_desc"
+            android:title="@string/log_level" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="log_use_direct_file"
+            android:summary="@string/log_use_direct_file_desc"
+            android:title="@string/log_use_direct_file" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

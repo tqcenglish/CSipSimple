@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+		Copyright (C) 2010 Regis Montoya (aka r3gis - www.r3gis.fr)
+		Copyright (C) 2007-2008 Esmertec AG.
+	 	Copyright (C) 2007-2008 The Android Open Source Project
+	
+		This file is part of CSipSimple. CSipSimple is free software: you can
+		redistribute it and/or modify it under the terms of the GNU General
+		Public License as published by the Free Software Foundation, either
+		version 3 of the License, or (at your option) any later version.
+		If you own a pjsip commercial license you can also redistribute it
+		and/or modify it under the terms of the GNU Lesser General Public License
+		as an android library.
+
+		CSipSimple is distributed in the hope that it will be useful, but
+		WITHOUT ANY WARRANTY; without even the implied warranty of
+		MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU
+		General Public License for more details. You should have received a
+		copy of the GNU General Public License along with CSipSimple. If not,
+		see <http://www.gnu.org/licenses/>.
+-->
+<!-- Parts of this file are extract from the android project distributed under Apache license relicensed in GPLv3 -->
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/recipients_subject_linear"
+        style="@style/ButtonBar"
+        android:layout_width="fill_parent"
+        android:layout_height="75dip"
+        android:orientation="horizontal"
+        android:paddingBottom="5dip"
+        android:paddingLeft="5dip"
+        android:paddingRight="5dip"
+        android:paddingTop="5dip" >
+
+        <TextView
+            android:id="@+id/subject"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="10dip"
+            android:layout_toLeftOf="@+id/accountChooserButton"
+            android:clickable="true"
+            android:ellipsize="end"
+            android:focusable="true"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:id="@+id/subjectLabel"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/subject"
+            android:layout_alignRight="@+id/subject"
+            android:layout_below="@+id/subject"
+            android:ellipsize="end"
+            android:text=""
+            android:textAppearance="?android:attr/textAppearanceSmall" >
+        </TextView>
+
+        <com.csipsimple.widgets.AccountChooserButton
+            android:id="@+id/accountChooserButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true" />
+    </RelativeLayout>
+
+    <ListView
+        android:id="@android:id/list"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@+id/bottom_panel"
+        android:layout_below="@id/recipients_subject_linear"
+        android:layout_marginBottom="1dip"
+        android:drawSelectorOnTop="true"
+        android:fadingEdge="none"
+        android:scrollbarAlwaysDrawVerticalTrack="true"
+        android:scrollbarStyle="insideInset"
+        android:stackFromBottom="true"
+        android:transcriptMode="alwaysScroll"
+        android:visibility="visible" />
+
+    <RelativeLayout
+        android:id="@+id/bottom_panel"
+        style="@style/ButtonBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true" >
+
+        <EditText
+            android:id="@+id/embedded_text_editor"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@+id/button_with_counter"
+            android:hint="@string/type_to_compose_text_enter_to_send"
+            android:imeOptions="actionSend|flagNoEnterAction"
+            android:inputType="textShortMessage|textAutoCorrect|textCapSentences|textMultiLine"
+            android:maxLength="2000"
+            android:maxLines="3"
+            android:nextFocusRight="@+id/send_button" />
+
+        <LinearLayout
+            android:id="@+id/button_with_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:orientation="vertical" >
+
+            <Button
+                android:id="@+id/send_button"
+                style="?android:attr/buttonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_marginLeft="5dip"
+                android:layout_weight="1.0"
+                android:nextFocusLeft="@+id/embedded_text_editor"
+                android:text="@string/send" />
+
+            <TextView
+                android:id="@+id/text_counter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal|bottom"
+                android:paddingBottom="5dip"
+                android:paddingLeft="3dip"
+                android:paddingRight="3dip"
+                android:textAppearance="?android:attr/textAppearanceSmall"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:visibility="gone" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

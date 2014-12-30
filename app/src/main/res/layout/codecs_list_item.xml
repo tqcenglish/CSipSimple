@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2010-2012 Regis Montoya (aka r3gis - www.r3gis.fr)
+	This file is part of CSipSimple.
+	 
+	CSipSimple is free software: you can redistribute it and/or modify
+	it under the terms of the GNU General Public License as published by
+	the Free Software Foundation, either version 3 of the License, or
+	(at your option) any later version.
+	If you own a pjsip commercial license you can also redistribute it
+	and/or modify it under the terms of the GNU Lesser General Public License
+	as an android library.
+	
+	CSipSimple is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
+	 
+	You should have received a copy of the GNU General Public License
+	along with CSipSimple.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/entiere_line"
+    android:layout_width="fill_parent"
+    android:layout_height="64dip"
+    android:baselineAligned="false"
+    android:gravity="bottom"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/divider_horizontal_dark"
+        android:contentDescription="@string/empty_description" />
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="64dip"
+        android:gravity="center_vertical"
+        android:ignoreGravity="@+id/icon" >
+
+        <CheckBox
+            android:id="@+id/AccCheckBoxActive"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentTop="true" />
+
+        <ImageView
+            android:id="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginRight="10dip"
+            android:contentDescription="@string/empty_description"
+            android:src="@drawable/grabber" />
+        <!-- The height is set to half the height of the parent, which is 64 dip -->
+
+        <TextView
+            android:id="@+id/line1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@id/AccCheckBoxActive"
+            android:ellipsize="marquee"
+            android:gravity="center_vertical"
+            android:paddingLeft="9dip"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+    </RelativeLayout>
+
+</LinearLayout>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="filters_action">
+        <item>@string/cant_call</item>
+        <item>@string/rewrite</item>
+        <item>@string/stop_processing</item>
+        <item>@string/direct_call</item>
+        <item>@string/auto_answer</item>
+    </string-array>
+    <string-array name="filters_type">
+        <item>@string/starts_with</item>
+        <item>@string/ends_with</item>
+        <item>@string/contains</item>
+        <item>@string/all</item>
+        <item>@string/has_exactly_n_digits</item>
+        <item>@string/has_more_than_n_digits</item>
+        <item>@string/is_exactly</item>
+        <item>@string/custom_regexp</item>
+        <item>@string/bluetooth</item>
+        <item>@string/call_info_header</item>
+    </string-array>
+    <string-array name="replace_type">
+        <item>@string/prefix_by</item>
+        <item>@string/suffix_with</item>
+        <item>@string/replace_match_by</item>
+        <item>@string/replace_all_by</item>
+        <item>@string/custom_regexp</item>
+    </string-array>
+
+</resources>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2010 Regis Montoya (aka r3gis - www.r3gis.fr) 
+
+	This file is part of CSipSimple.
+    CSipSimple is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+	If you own a pjsip commercial license you can also redistribute it
+	and/or modify it under the terms of the GNU Lesser General Public License
+	as an android library.
+
+    CSipSimple is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CSipSimple.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <!-- TX -->
+
+    <ImageView
+        android:id="@+id/tx_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/speaker_level"
+        android:layout_alignParentTop="true"
+        android:layout_alignTop="@+id/tx_bar"
+        android:contentDescription="@string/empty_description"
+        android:padding="5dip"
+        android:src="@drawable/ic_speaker_dark" />
+
+    <ProgressBar
+        android:id="@id/tx_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/tx_icon"
+        android:max="255"
+        android:padding="5dip" />
+
+    <SeekBar
+        android:id="@id/speaker_level"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tx_bar"
+        android:layout_gravity="center"
+        android:layout_toRightOf="@id/tx_icon"
+        android:max="100" />
+
+    <!-- RX -->
+
+    <ImageView
+        android:id="@+id/rx_icon"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/micro_level"
+        android:layout_alignTop="@+id/rx_bar"
+        android:contentDescription="@string/empty_description"
+        android:padding="5dip"
+        android:src="@drawable/ic_micro_dark" />
+
+    <ProgressBar
+        android:id="@id/rx_bar"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tx_icon"
+        android:layout_toRightOf="@id/rx_icon"
+        android:max="255"
+        android:padding="5dip" />
+
+    <SeekBar
+        android:id="@id/micro_level"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rx_bar"
+        android:layout_gravity="center"
+        android:layout_toRightOf="@id/rx_icon"
+        android:max="100" />
+
+    <CheckBox
+        android:id="@+id/echo_cancellation"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/rx_icon"
+        android:layout_gravity="center"
+        android:drawablePadding="2dip"
+        android:ellipsize="end"
+        android:paddingLeft="40dip"
+        android:text="@string/echo_cancellation" />
+
+    <LinearLayout
+        android:id="@+id/ok_bar"
+        style="@style/ButtonBar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/echo_cancellation"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/save_bt"
+            style="@style/ButtonBarButton"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/ok" />
+    </LinearLayout>
+
+</RelativeLayout>

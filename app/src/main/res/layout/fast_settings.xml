@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2010 Regis Montoya (aka r3gis - www.r3gis.fr) 
+
+	This file is part of CSipSimple.
+    CSipSimple is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+	If you own a pjsip commercial license you can also redistribute it
+	and/or modify it under the terms of the GNU Lesser General Public License
+	as an android library.
+
+    CSipSimple is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CSipSimple.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical" >
+
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_weight="1"
+        android:fadingEdge="vertical"
+        android:scrollbars="vertical" >
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <!-- Integration -->
+
+            <RelativeLayout
+                android:id="@+id/row_glob_integrate"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/actionBarItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/glob_integrate_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/glob_integrate"
+                    android:text="@string/android_integration"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/glob_integrate_text"
+                    android:layout_toLeftOf="@id/glob_integrate"
+                    android:text="@string/android_integration_desc"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                <CheckBox
+                    android:id="@id/glob_integrate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="6dip" />
+            </RelativeLayout>
+
+            <TextView
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/availability_profile" />
+            <!-- Battery profile -->
+
+            <RelativeLayout
+                android:id="@+id/row_glob_profile_always"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/actionBarItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/glob_profile_always_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/glob_profile_always"
+                    android:text="@string/always_available"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/glob_profile_always_text"
+                    android:layout_toLeftOf="@id/glob_profile_always"
+                    android:text="@string/always_available_desc"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                <RadioButton
+                    android:id="@id/glob_profile_always"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="6dip" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/divider_horizontal_dark"
+                android:gravity="fill_horizontal" />
+
+            <RelativeLayout
+                android:id="@+id/row_glob_profile_wifi"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/actionBarItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/glob_profile_wifi_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/glob_profile_wifi"
+                    android:text="@string/wifi_available"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/glob_profile_wifi_text"
+                    android:layout_toLeftOf="@+id/glob_profile_wifi"
+                    android:text="@string/wifi_available_desc"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                <RadioButton
+                    android:id="@+id/glob_profile_wifi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="6dip" />
+            </RelativeLayout>
+
+            <View
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@android:drawable/divider_horizontal_dark"
+                android:gravity="fill_horizontal" />
+
+            <RelativeLayout
+                android:id="@+id/row_glob_profile_never"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/actionBarItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/glob_profile_never_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/glob_profile_never"
+                    android:text="@string/never_available"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/glob_profile_never_text"
+                    android:layout_toLeftOf="@+id/glob_profile_never"
+                    android:text="@string/never_available_desc"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                <RadioButton
+                    android:id="@+id/glob_profile_never"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="6dip" />
+            </RelativeLayout>
+            <!-- 3G -->
+
+            <TextView
+                style="?android:attr/listSeparatorTextViewStyle"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/availability_tg" />
+
+            <RelativeLayout
+                android:id="@+id/row_glob_tg"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="?attr/actionBarItemBackground"
+                android:clickable="true"
+                android:focusable="true"
+                android:orientation="horizontal"
+                android:padding="5dip" >
+
+                <TextView
+                    android:id="@+id/glob_tg_text"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_toLeftOf="@+id/glob_tg"
+                    android:text="@string/tg_allowed"
+                    android:textAppearance="?android:attr/textAppearanceMedium" />
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/glob_tg_text"
+                    android:layout_toLeftOf="@+id/glob_tg"
+                    android:text="@string/tg_allowed_desc"
+                    android:textAppearance="?android:attr/textAppearanceSmall"
+                    android:textColor="?android:attr/textColorSecondary" />
+
+                <CheckBox
+                    android:id="@+id/glob_tg"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_gravity="center_vertical"
+                    android:layout_margin="6dip" />
+            </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        style="@style/ButtonBar.AlertDialog"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0"
+        android:orientation="horizontal" >
+
+        <Button
+            android:id="@+id/save_bt"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/save" />
+    </LinearLayout>
+
+</LinearLayout>

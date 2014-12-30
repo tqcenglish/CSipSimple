@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2010 Regis Montoya (aka r3gis - www.r3gis.fr) 
+
+	This file is part of CSipSimple.
+    CSipSimple is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+	If you own a pjsip commercial license you can also redistribute it
+	and/or modify it under the terms of the GNU Lesser General Public License
+	as an android library.
+
+    CSipSimple is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CSipSimple.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/accounts_container"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:baselineAligned="false"
+    android:orientation="horizontal" >
+
+    <!-- Unfortunately to be compatible with 1.6 devices, we need to write it as flat file -->
+
+    <RelativeLayout
+        android:id="@+id/cell1"
+        style="@style/list_left_column"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/iconContainer1"
+            android:layout_width="64dip"
+            android:layout_height="fill_parent"
+            android:background="@drawable/notify_panel_notification_icon_bg_tile"
+            android:orientation="vertical"
+            android:paddingBottom="4dip"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip" >
+
+            <ImageView
+                android:id="@+id/icon1"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:contentDescription="@string/acct_registered" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/acct_registered"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_indicator_on" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/account_label1"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iconContainer1"
+            android:ellipsize="end"
+            android:paddingLeft="14dip"
+            android:textAppearance="@style/NotificationTitle" >
+        </TextView>
+    </RelativeLayout>
+    <!-- Unfortunately to be compatible with 1.6 devices, we need to write it as flat file -->
+
+    <RelativeLayout
+        android:id="@+id/cell2"
+        style="@style/list_left_column"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/iconContainer2"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingBottom="4dip"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip" >
+
+            <ImageView
+                android:id="@+id/icon2"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:contentDescription="@string/acct_registered" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/acct_registered"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_indicator_on" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/account_label2"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iconContainer2"
+            android:ellipsize="end"
+            android:paddingLeft="14dip"
+            android:textAppearance="@style/NotificationTitle" >
+        </TextView>
+    </RelativeLayout>
+    <!-- Unfortunately to be compatible with 1.6 devices, we need to write it as flat file -->
+
+    <RelativeLayout
+        android:id="@+id/cell3"
+        style="@style/list_left_column"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/iconContainer3"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:orientation="vertical"
+            android:paddingBottom="4dip"
+            android:paddingLeft="8dip"
+            android:paddingRight="8dip" >
+
+            <ImageView
+                android:id="@+id/icon3"
+                android:layout_width="wrap_content"
+                android:layout_height="0dip"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:contentDescription="@string/acct_registered" />
+
+            <ImageView
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@string/acct_registered"
+                android:scaleType="fitXY"
+                android:src="@drawable/ic_indicator_on" />
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/account_label3"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/iconContainer3"
+            android:ellipsize="end"
+            android:paddingLeft="14dip"
+            android:textAppearance="@style/NotificationTitle" >
+        </TextView>
+    </RelativeLayout>
+    <!-- TODO : add a more label -->
+
+</LinearLayout>

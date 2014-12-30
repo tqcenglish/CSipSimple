@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+	Copyright (C) 2010 Regis Montoya (aka r3gis - www.r3gis.fr)
+	 
+	This file is part of CSipSimple.
+
+    CSipSimple is free software: you can redistribute it and/or modify
+    it under the terms of the GNU General Public License as published by
+    the Free Software Foundation, either version 3 of the License, or
+    (at your option) any later version.
+
+    CSipSimple is distributed in the hope that it will be useful,
+    but WITHOUT ANY WARRANTY; without even the implied warranty of
+    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+    GNU General Public License for more details.
+
+    You should have received a copy of the GNU General Public License
+    along with CSipSimple.  If not, see <http://www.gnu.org/licenses/>.
+-->
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="SIP Account" >
+        <EditTextPreference
+            android:key="display_name"
+            android:summary="@string/w_expert_display_name_desc"
+            android:title="@string/w_expert_display_name" />
+        <EditTextPreference
+            android:dialogMessage="@string/w_expert_acc_id_desc"
+            android:inputType="textVisiblePassword"
+            android:key="acc_id"
+            android:title="@string/w_expert_acc_id" />
+        <EditTextPreference
+            android:dialogMessage="@string/w_expert_reg_uri_desc"
+            android:inputType="textVisiblePassword"
+            android:key="reg_uri"
+            android:title="@string/w_expert_reg_uri" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="SIP Authentication" >
+        <EditTextPreference
+            android:dialogMessage="@string/w_expert_realm_desc"
+            android:inputType="textVisiblePassword"
+            android:key="realm"
+            android:title="@string/w_expert_realm" />
+        <EditTextPreference
+            android:inputType="textVisiblePassword"
+            android:key="username"
+            android:summary="@string/w_expert_username_desc"
+            android:title="@string/w_expert_username" />
+
+        <com.csipsimple.widgets.PasswordPreference
+            android:key="data"
+            android:password="true"
+            android:summary="@string/w_expert_data_desc"
+            android:title="@string/w_expert_data" />
+
+        <ListPreference
+            android:entries="@array/data_type_choices"
+            android:entryValues="@array/data_type_values"
+            android:key="datatype"
+            android:summary="@string/w_expert_datatype_desc"
+            android:title="@string/w_expert_datatype" />
+        <ListPreference
+            android:entries="@array/scheme_choices"
+            android:entryValues="@array/scheme_values"
+            android:key="scheme"
+            android:title="Scheme" />
+
+        <CheckBoxPreference
+            android:key="initial_auth"
+            android:summary="Send an empty Authorization header in each initial request"
+            android:title="Send empty auth header" />
+
+        <EditTextPreference
+            android:key="auth_algo"
+            android:summary="Algorithm text to use when empty Authorization header"
+            android:title="Auth algo for empty auth header" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Connection" >
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/transport_choices"
+            android:entryValues="@array/transport_values"
+            android:key="transport"
+            android:summary="@string/transport_desc"
+            android:title="@string/transport" />
+        <ListPreference
+            android:defaultValue="sip"
+            android:entries="@array/uri_scheme_choices"
+            android:entryValues="@array/uri_scheme_values"
+            android:key="default_uri_scheme"
+            android:summary="@string/w_expert_default_uri_scheme_desc"
+            android:title="@string/w_expert_default_uri_scheme" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="ipv6_media_use"
+            android:title="@string/w_expert_ipv6_media_use" />
+        <CheckBoxPreference
+            android:key="publish_enabled"
+            android:title="@string/w_expert_publish_enabled" />
+
+        <EditTextPreference
+            android:key="reg_timeout"
+            android:title="@string/w_expert_reg_timeout" />
+        <EditTextPreference
+            android:inputType="textVisiblePassword"
+            android:key="reg_dbr"
+            android:summary="@string/w_expert_reg_dbr_desc"
+            android:title="@string/w_expert_reg_dbr" />
+        <EditTextPreference
+            android:inputType="textVisiblePassword"
+            android:key="force_contact"
+            android:title="@string/w_expert_force_contact" />
+
+        <CheckBoxPreference
+            android:key="allow_contact_rewrite"
+            android:title="@string/w_expert_allow_contact_rewrite" />
+
+        <ListPreference
+            android:defaultValue="2"
+            android:entries="@array/contact_rewrite_method_choices"
+            android:entryValues="@array/contact_rewrite_method_values"
+            android:key="contact_rewrite_method"
+            android:title="@string/w_expert_contact_rewrite_method" />
+
+        <CheckBoxPreference
+            android:key="allow_via_rewrite"
+            android:summary="@string/w_expert_allow_via_rewrite_desc"
+            android:title="@string/w_expert_allow_via_rewrite" />
+        <CheckBoxPreference
+            android:key="try_clean_reg"
+            android:summary="@string/w_expert_try_clean_registers_desc"
+            android:title="@string/w_expert_try_clean_registers" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/w_expert_t_proxy" >
+        <EditTextPreference
+            android:dialogMessage="@string/w_expert_proxy_desc"
+            android:inputType="textVisiblePassword"
+            android:key="proxy"
+            android:title="@string/w_expert_proxy" />
+    </PreferenceCategory>
+    <!--
+	<ListPreference android:key="reg_use_proxy" android:title="@string/w_expert_reg_use_proxy"
+			android:defaultValue="3"
+			android:entryValues="@array/reg_use_proxy_values" android:entries="@array/reg_use_proxy_choices"
+			/>
+    -->
+
+    <PreferenceCategory android:title="@string/w_expert_media_transport" >
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/use_srtp_acc_choices"
+            android:entryValues="@array/use_srtp_acc_values"
+            android:key="use_srtp"
+            android:summary="@string/use_srtp_desc"
+            android:title="@string/use_srtp" />
+        <ListPreference
+            android:defaultValue="0"
+            android:entries="@array/use_zrtp_acc_choices"
+            android:entryValues="@array/use_zrtp_acc_values"
+            android:key="use_zrtp"
+            android:summary="@string/use_zrtp_desc"
+            android:title="@string/use_zrtp" />
+
+        <EditTextPreference
+            android:defaultValue="-1"
+            android:dialogMessage="@string/leave_minus_1_default"
+            android:key="rtp_port"
+            android:numeric="signed"
+            android:summary="@string/network_rtp_port_desc"
+            android:title="@string/network_rtp_port" />
+        <EditTextPreference
+            android:dialogMessage="@string/w_expert_rtp_public_addr_desc"
+            android:inputType="textVisiblePassword"
+            android:key="rtp_public_addr"
+            android:summary="@string/w_expert_rtp_public_addr_desc"
+            android:title="@string/w_expert_rtp_public_addr" />
+        <EditTextPreference
+            android:dialogMessage="@string/w_expert_rtp_bound_addr_desc"
+            android:inputType="textVisiblePassword"
+            android:key="rtp_bound_addr"
+            android:summary="@string/w_expert_rtp_bound_addr_desc"
+            android:title="@string/w_expert_rtp_bound_addr" />
+
+        <ListPreference
+            android:defaultValue="-1"
+            android:entries="@array/auto_on_off_choices"
+            android:entryValues="@array/auto_on_off_values"
+            android:key="rtp_enable_qos"
+            android:summary="@string/enable_qos_desc"
+            android:title="@string/enable_qos" />
+
+        <EditTextPreference
+            android:defaultValue="-1"
+            android:dialogMessage="@string/leave_minus_1_default"
+            android:key="rtp_qos_dscp"
+            android:numeric="signed"
+            android:summary="@string/rtp_dscp_val_desc"
+            android:title="@string/dscp_val" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/misc" >
+        <EditTextPreference
+            android:inputType="textVisiblePassword"
+            android:key="vm_nbr"
+            android:title="@string/voice_mail" />
+
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="mwi_enabled"
+            android:summary="@string/w_expert_mwi_enabled_desc"
+            android:title="@string/w_expert_mwi_enabled" />
+
+        <ListPreference
+            android:defaultValue="-1"
+            android:entries="@array/auto_on_off_choices"
+            android:entryValues="@array/auto_on_off_values"
+            android:key="vid_in_auto_show"
+            android:summary="@string/vid_in_auto_show_desc"
+            android:title="@string/vid_in_auto_show" />
+        <ListPreference
+            android:defaultValue="-1"
+            android:entries="@array/auto_on_off_choices"
+            android:entryValues="@array/auto_on_off_values"
+            android:key="vid_out_auto_transmit"
+            android:summary="@string/vid_out_auto_transmit_desc"
+            android:title="@string/vid_out_auto_transmit" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="Outbound proxy RFC5626" >
+        <CheckBoxPreference
+            android:defaultValue="true"
+            android:key="use_rfc5626"
+            android:summary="Control the use of SIP outbound feature. (currently only works with TCP and TLS transports)"
+            android:title="Enable RFC5626" />
+
+        <EditTextPreference
+            android:dialogMessage="Empty for auto generated, or look like &lt;urn:uuid:00000000-0000-1000-8000-AABBCCDDEEFF>"
+            android:inputType="textVisiblePassword"
+            android:key="rfc5626_instance_id"
+            android:summary="Specify SIP outbound (RFC 5626) instance ID to be use"
+            android:title="RFC5626 Instance id" />
+        <EditTextPreference
+            android:dialogMessage="Empty for auto generated."
+            android:inputType="textVisiblePassword"
+            android:key="rfc5626_reg_id"
+            android:summary="Specify SIP outbound (RFC 5626) registration ID."
+            android:title="RFC5626 Reg id" />
+    </PreferenceCategory>
+    <PreferenceCategory android:title="@string/nat_traversal" >
+        <CheckBoxPreference
+            android:key="allow_sdp_nat_rewrite"
+            android:summary="@string/w_expert_allow_sdp_nat_rewrite_desc"
+            android:title="@string/w_expert_allow_sdp_nat_rewrite" />
+
+        <ListPreference
+            android:defaultValue="-1"
+            android:entries="@array/acc_stun_use_choices"
+            android:entryValues="@array/acc_stun_use_values"
+            android:key="sip_stun_use"
+            android:title="STUN for SIP" />
+        <ListPreference
+            android:defaultValue="-1"
+            android:entries="@array/acc_stun_use_choices"
+            android:entryValues="@array/acc_stun_use_values"
+            android:key="media_stun_use"
+            android:title="STUN for Media" />
+
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="ice_cfg_use"
+            android:title="Custom ICE configuration" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:dependency="ice_cfg_use"
+            android:key="ice_cfg_enable"
+            android:title="Enable ICE" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:key="turn_cfg_use"
+            android:title="Custom TURN configuration" />
+        <CheckBoxPreference
+            android:defaultValue="false"
+            android:dependency="turn_cfg_use"
+            android:key="turn_cfg_enable"
+            android:title="Enable TURN" />
+
+        <EditTextPreference
+            android:defaultValue=""
+            android:dependency="turn_cfg_use"
+            android:key="turn_cfg_server"
+            android:title="TURN server" />
+        <EditTextPreference
+            android:defaultValue=""
+            android:dependency="turn_cfg_use"
+            android:key="turn_cfg_user"
+            android:title="TURN user" />
+        <EditTextPreference
+            android:defaultValue=""
+            android:dependency="turn_cfg_use"
+            android:key="turn_cfg_pwd"
+            android:title="TURN password" />
+    </PreferenceCategory>
+
+</PreferenceScreen>

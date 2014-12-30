@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <RelativeLayout
+        android:id="@+id/header_view"
+        style="?android:attr/listSeparatorTextViewStyle"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center_vertical"
+        android:visibility="gone" >
+
+        <ImageView
+            android:id="@+id/header_icon"
+            android:layout_width="32dip"
+            android:layout_height="32dip"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="5dip"
+            android:layout_marginRight="5dip"
+            android:contentDescription="@string/empty_description"
+            android:src="@drawable/ic_wizard_basic" />
+
+        <TextView
+            android:id="@+id/header_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dip"
+            android:layout_toRightOf="@+id/header_icon"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <LinearLayout
+            android:id="@+id/header_cfg_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_alignParentRight="true" />
+
+        <com.csipsimple.ui.favorites.PresenceStatusSpinner
+            android:id="@+id/header_presence_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="fill_parent"
+            android:layout_toLeftOf="@id/header_cfg_spinner"
+            android:spinnerMode="dropdown" >
+
+            <!-- Preview: listitem=@android:layout/simple_spinner_dropdown_item -->
+        </com.csipsimple.ui.favorites.PresenceStatusSpinner>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/contact_view"
+        android:layout_width="fill_parent"
+        android:layout_height="?android:attr/listPreferredItemHeight"
+        android:layout_gravity="center_vertical"
+        android:background="?attr/actionBarItemBackground" >
+
+        <com.csipsimple.widgets.contactbadge.QuickContactBadge
+            android:id="@+id/quick_contact_photo"
+            android:layout_width="@dimen/call_log_list_contact_photo_size"
+            android:layout_height="@dimen/call_log_list_contact_photo_size"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/call_log_inner_margin"
+            android:layout_marginRight="10dip" />
+
+        <TextView
+            android:id="@+id/contact_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_alignWithParentIfMissing="true"
+            android:layout_marginTop="6dip"
+            android:layout_toRightOf="@id/quick_contact_photo"
+            android:ellipsize="marquee"
+            android:singleLine="true"
+            android:textAppearance="?android:attr/textAppearanceMedium" />
+
+        <ImageView
+            android:id="@+id/status_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/contact_name"
+            android:layout_margin="5dip"
+            android:layout_toRightOf="@id/quick_contact_photo"
+            android:contentDescription="@string/empty_description"
+            android:src="@android:drawable/presence_offline"
+            android:visibility="gone" />
+
+        <TextView
+            android:id="@+id/status_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignBottom="@id/status_icon"
+            android:layout_toRightOf="@id/status_icon"
+            android:gravity="center_vertical"
+            android:visibility="gone" />
+
+        <View
+            android:id="@+id/divider"
+            android:layout_width="1dip"
+            android:layout_height="@dimen/call_log_call_action_size"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center_vertical"
+            android:layout_toLeftOf="@+id/secondary_action_icon"
+            android:background="@drawable/ic_divider_dashed_holo_dark" />
+
+        <ImageButton
+            android:id="@+id/secondary_action_icon"
+            android:layout_width="@dimen/call_log_call_action_width"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:background="?attr/actionBarItemBackground"
+            android:contentDescription="@string/call"
+            android:nextFocusLeft="@id/primary_action_view"
+            android:paddingBottom="@dimen/call_log_inner_margin"
+            android:paddingLeft="@dimen/call_log_inner_margin"
+            android:paddingRight="@dimen/call_log_inner_margin"
+            android:paddingTop="@dimen/call_log_inner_margin"
+            android:scaleType="center"
+            android:src="@drawable/ic_ab_dialer_holo_dark" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/configure_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:text="@string/configure" />
+
+</LinearLayout>

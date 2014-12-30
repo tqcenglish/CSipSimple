@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="DarkTheme" parent="Theme.Sherlock" />
+
+    <style name="ButtonBar" parent="@android:style/Holo.ButtonBar" />
+
+    <style name="ButtonBarButton" parent="@android:style/Widget.Holo.Button.Borderless" />
+
+    <style name="ButtonBar.AlertDialog" parent="@android:style/Holo.ButtonBar.AlertDialog" />
+
+</resources>
