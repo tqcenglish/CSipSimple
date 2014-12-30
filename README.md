@@ -8,7 +8,9 @@ CSipSimple for Android Studio Project
 * /res/values/wizard_sipgate_string.xml move 
     	
     	<string  xm:lns:ns0="http://schemas.android.com/tools" />
+
 to
+
 	<resources xmlns:ns0="http://schemas.android.com/tools"/>
 
 
