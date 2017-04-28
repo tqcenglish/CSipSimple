@@ -266,11 +266,11 @@ public class InCallCard extends FrameLayout implements OnClickListener, Callback
                 Log.d(THIS_FILE, "Current ratio is " + currentRatio);
                 if(currentRatio < minRatio) {
                     newHeight = w / minRatio;
-                    int padding = (int) FloatMath.floor((h - newHeight) /2);
+                    int padding = (int) (float)Math.floor((h - newHeight) /2);
                     setPadding(0, padding, 0, padding);
                 }else if(currentRatio > maxRatio) {
                     newWidth = h * maxRatio;
-                    int padding = (int) FloatMath.floor((w - newWidth) /2);
+                    int padding = (int) (float)Math.floor((w - newWidth) /2);
                     setPadding(padding, 0, padding, 0);
                 }else {
                     setPadding(0, 0, 0, 0);

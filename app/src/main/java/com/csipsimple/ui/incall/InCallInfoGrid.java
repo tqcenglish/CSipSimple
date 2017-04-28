@@ -139,7 +139,7 @@ public class InCallInfoGrid extends FrameLayout {
         int numRows = 1;
         int numColumns = 1;
         if(count > 0) {
-            int possibleColumns = (int) FloatMath.floor( (width * 1.0f)/ (minColumnWidth * 1.0f) );
+            int possibleColumns = (int) (float)Math.floor( (width * 1.0f)/ (minColumnWidth * 1.0f) );
             if(possibleColumns <= 0) {
                 possibleColumns = 1;
             }

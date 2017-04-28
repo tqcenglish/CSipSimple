@@ -97,7 +97,8 @@ public class SipNotifications {
     private void searchNotificationPrimaryText(Context aContext) {
 	    try {
 	        Notification ntf = new Notification();
-	        ntf.setLatestEventInfo(aContext, TO_SEARCH, "", null);
+	        // tqcenglish 新版本无这个方法
+			// ntf.setLatestEventInfo(aContext, TO_SEARCH, "", null);
 	        LinearLayout group = new LinearLayout(aContext);
 	        ViewGroup event = (ViewGroup) ntf.contentView.apply(aContext, group);
 	        recurseSearchNotificationPrimaryText(event);
