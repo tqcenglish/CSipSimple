@@ -16,4 +16,8 @@ app/build/
 app/src/main/jni.*
 .idea/
 .gradle/
-
+app/.classpath
+app/.settings
+app/.project
+.project
+.settings
