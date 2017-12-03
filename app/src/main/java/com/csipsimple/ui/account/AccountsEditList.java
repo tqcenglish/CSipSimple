@@ -22,13 +22,13 @@
 package com.csipsimple.ui.account;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
 import com.csipsimple.R;
 import com.csipsimple.utils.Compatibility;
 
-public class AccountsEditList extends SherlockFragmentActivity {
+public class AccountsEditList extends AppCompatActivity {
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

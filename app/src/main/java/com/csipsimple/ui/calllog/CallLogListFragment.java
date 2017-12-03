@@ -32,20 +32,19 @@ import android.provider.CallLog.Calls;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.ActionMode;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemLongClickListener;
 import android.widget.ListView;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.ActionMode;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.view.MenuItem.OnMenuItemClickListener;
 import com.csipsimple.R;
 import com.csipsimple.api.SipManager;
 import com.csipsimple.api.SipProfile;
@@ -154,7 +153,7 @@ public class CallLogListFragment extends CSSListFragment implements ViewPagerVis
             mShowOptionsMenu = visible;
             // Invalidate the options menu since we are changing the list of
             // options shown in it.
-            SherlockFragmentActivity activity = getSherlockActivity();
+            AppCompatActivity activity = getActivity();
             if (activity != null) {
                 activity.invalidateOptionsMenu();
             }
@@ -208,13 +207,13 @@ public class CallLogListFragment extends CSSListFragment implements ViewPagerVis
         int actionRoom = getResources().getBoolean(R.bool.menu_in_bar) ? MenuItem.SHOW_AS_ACTION_IF_ROOM : MenuItem.SHOW_AS_ACTION_NEVER;
         MenuItem delMenu = menu.add(R.string.callLog_delete_all);
         delMenu.setIcon(R.drawable.ic_ab_trash_dark).setShowAsAction(actionRoom);
-        delMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                deleteAllCalls();
-                return true;
-            }
-        });
+//        delMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+//            @Override
+//            public boolean onMenuItemClick(MenuItem item) {
+//                deleteAllCalls();
+//                return true;
+//            }
+//        });
     }
 
     private void deleteAllCalls() {

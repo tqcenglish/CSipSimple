@@ -21,6 +21,7 @@
 
 package com.csipsimple.ui;
 
+import android.animation.ObjectAnimator;
 import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -39,21 +40,17 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.Menu;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.ActionBar.Tab;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.internal.nineoldandroids.animation.ObjectAnimator;
-import com.actionbarsherlock.internal.nineoldandroids.animation.ValueAnimator;
-import com.actionbarsherlock.internal.widget.IcsLinearLayout;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuItem;
 import com.csipsimple.R;
 import com.csipsimple.api.SipConfigManager;
 import com.csipsimple.api.SipManager;
@@ -83,7 +80,7 @@ import com.csipsimple.wizards.WizardUtils.WizardInfo;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SipHome extends SherlockFragmentActivity implements OnWarningChanged {
+public class SipHome extends AppCompatActivity implements OnWarningChanged {
     public static final int ACCOUNTS_MENU = Menu.FIRST + 1;
     public static final int PARAMS_MENU = Menu.FIRST + 2;
     public static final int CLOSE_MENU = Menu.FIRST + 3;
@@ -111,7 +108,7 @@ public class SipHome extends SherlockFragmentActivity implements OnWarningChange
     private TabsAdapter mTabsAdapter;
     private boolean mDualPane;
     private Thread asyncSanityChecker;
-    private Tab warningTab;
+    private ActionBar.Tab warningTab;
     private ObjectAnimator warningTabfadeAnim;
 
     /**

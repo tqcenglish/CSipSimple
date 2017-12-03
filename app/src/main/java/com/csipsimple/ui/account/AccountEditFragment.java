@@ -22,11 +22,11 @@
 package com.csipsimple.ui.account;
 
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 
-import com.actionbarsherlock.app.SherlockFragment;
 import com.csipsimple.api.SipProfile;
 
-public class AccountEditFragment extends SherlockFragment {
+public class AccountEditFragment extends Fragment {
 
 	public static AccountEditFragment newInstance(long profileId) {
 		AccountEditFragment f = new AccountEditFragment();

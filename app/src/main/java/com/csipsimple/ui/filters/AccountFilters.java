@@ -23,18 +23,19 @@
 package com.csipsimple.ui.filters;
 
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
+import android.view.MenuItem;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
+
 import com.csipsimple.R;
 import com.csipsimple.api.SipProfile;
 import com.csipsimple.utils.Compatibility;
 import com.csipsimple.utils.Log;
 import com.csipsimple.wizards.WizardUtils;
 
-public class AccountFilters extends SherlockFragmentActivity {
+public class AccountFilters extends AppCompatActivity {
 
     private static final String THIS_FILE = "AccountFilters";
     private long accountId = SipProfile.INVALID_ID;

@@ -34,7 +34,11 @@ import android.database.DatabaseUtils;
 import android.provider.BaseColumns;
 import android.provider.ContactsContract.Contacts;
 import android.support.v4.widget.ResourceCursorAdapter;
+import android.support.v7.view.menu.MenuBuilder;
+import android.support.v7.widget.ActionMenuView;
 import android.text.TextUtils;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -43,12 +47,6 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import com.actionbarsherlock.internal.view.menu.ActionMenuPresenter;
-import com.actionbarsherlock.internal.view.menu.ActionMenuView;
-import com.actionbarsherlock.internal.view.menu.MenuBuilder;
-import com.actionbarsherlock.internal.view.menu.MenuBuilder.Callback;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
 import com.csipsimple.R;
 import com.csipsimple.api.SipManager;
 import com.csipsimple.api.SipProfile;
@@ -161,34 +159,34 @@ public class FavAdapter extends ResourceCursorAdapter implements OnClickListener
             presSpinner.setProfileId(profileId);
             
             // Extra menu view if not already set
-            ViewGroup menuViewWrapper = (ViewGroup) view.findViewById(R.id.header_cfg_spinner);
-            
-            MenuCallback newMcb = new MenuCallback(context, profileId, groupName, domain, publishedEnabled);
-            MenuBuilder menuBuilder;
-            if(menuViewWrapper.getTag() == null) {
-
-                final LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,
-                        LayoutParams.MATCH_PARENT);
-
-                ActionMenuPresenter mActionMenuPresenter = new ActionMenuPresenter(mContext);
-                mActionMenuPresenter.setReserveOverflow(true);
-                menuBuilder = new MenuBuilder(context);
-                menuBuilder.setCallback(newMcb);
-                MenuInflater inflater = new MenuInflater(context);
-                inflater.inflate(R.menu.fav_menu, menuBuilder);
-                menuBuilder.addMenuPresenter(mActionMenuPresenter);
-                ActionMenuView menuView = (ActionMenuView) mActionMenuPresenter.getMenuView(menuViewWrapper);
-               // UtilityWrapper.getInstance().setBackgroundDrawable(menuView, null);
-                //change tqc
-                menuView.setBackground(null);
-                menuViewWrapper.addView(menuView, layoutParams);
-                menuViewWrapper.setTag(menuBuilder);
-            }else {
-                menuBuilder = (MenuBuilder) menuViewWrapper.getTag();
-                menuBuilder.setCallback(newMcb);
-            }
-            menuBuilder.findItem(R.id.share_presence).setTitle(publishedEnabled ? R.string.deactivate_presence_sharing : R.string.activate_presence_sharing);
-            menuBuilder.findItem(R.id.set_sip_data).setVisible(!TextUtils.isEmpty(groupName));
+//            ViewGroup menuViewWrapper = (ViewGroup) view.findViewById(R.id.header_cfg_spinner);
+//
+//            MenuCallback newMcb = new MenuCallback(context, profileId, groupName, domain, publishedEnabled);
+//            MenuBuilder menuBuilder;
+//            if(menuViewWrapper.getTag() == null) {
+//
+//                final LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT,
+//                        LayoutParams.MATCH_PARENT);
+//
+//                ActionMenuPresenter mActionMenuPresenter = new ActionMenuPresenter(mContext);
+//                mActionMenuPresenter.setReserveOverflow(true);
+//                menuBuilder = new MenuBuilder(context);
+//                menuBuilder.setCallback(newMcb);
+//                MenuInflater inflater = new MenuInflater(context);
+//                inflater.inflate(R.menu.fav_menu, menuBuilder);
+//                menuBuilder.addMenuPresenter(mActionMenuPresenter);
+//                ActionMenuView menuView = (ActionMenuView) mActionMenuPresenter.getMenuView(menuViewWrapper);
+//               // UtilityWrapper.getInstance().setBackgroundDrawable(menuView, null);
+//                //change tqc
+//                menuView.setBackground(null);
+//                menuViewWrapper.addView(menuView, layoutParams);
+//                menuViewWrapper.setTag(menuBuilder);
+//            }else {
+//                menuBuilder = (MenuBuilder) menuViewWrapper.getTag();
+//                menuBuilder.setCallback(newMcb);
+//            }
+//            menuBuilder.findItem(R.id.share_presence).setTitle(publishedEnabled ? R.string.deactivate_presence_sharing : R.string.activate_presence_sharing);
+//            menuBuilder.findItem(R.id.set_sip_data).setVisible(!TextUtils.isEmpty(groupName));
             
         }else if(type == ContactsWrapper.TYPE_CONTACT) {
             ContactInfo ci = ContactsWrapper.getInstance().getContactInfo(context, cursor);
@@ -241,7 +239,7 @@ public class FavAdapter extends ResourceCursorAdapter implements OnClickListener
         view.findViewById(R.id.configure_view).setVisibility((type == ContactsWrapper.TYPE_CONFIGURE) ? View.VISIBLE : View.GONE);
     }
     
-    private class MenuCallback implements Callback {
+    private class MenuCallback implements MenuBuilder.Callback {
         private Long profileId = SipProfile.INVALID_ID;
         private Context context;
         private String groupName;

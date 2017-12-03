@@ -74,12 +74,12 @@
         <item name="android:layout_margin">5dp</item>
     </style>
 
-    <style name="DarkTheme" parent="Theme.Sherlock"></style>
+    <style name="DarkTheme" parent="android:Theme.Material.Light"></style>
 
-    <style name="DarkTheme.Dialog" parent="Theme.Sherlock.Light.DarkActionBar">
+    <style name="DarkTheme.Dialog" parent="android:Theme.Material.Light.DarkActionBar">
 
         <!-- TODO : use android:attr on 11 -->
-        <item name="actionBarItemBackground">@drawable/abs__item_background_holo_dark</item>
+        <!-- <item name="actionBarItemBackground">@drawable/background_floating_material_dark</item> -->
         <!--
         <item name="android:windowNoTitle">false</item>
         <item name="android:windowAnimationStyle">@null</item>
@@ -87,8 +87,8 @@
         -->
     </style>
 
-    <style name="DarkTheme.NoTitle" parent="Theme.Sherlock.NoActionBar">
-        <item name="actionBarItemBackground">@drawable/abs__item_background_holo_dark</item>
+    <style name="DarkTheme.NoTitle" parent="android:Theme.Material.Light.NoActionBar">
+        <!-- <item name="actionBarItemBackground">@drawable/background_floating_material_dark</item> -->
     </style>
 
     <!-- Notification -->

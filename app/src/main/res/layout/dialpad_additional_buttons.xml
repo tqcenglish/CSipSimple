@@ -34,7 +34,7 @@
         android:layout_width="1dip"
         android:layout_height="24dip"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/abs__list_divider_holo_dark" />
+        android:background="@drawable/ic_divider_dashed_holo_dark" />
 
     <ImageButton
         android:id="@+id/dialButton"
@@ -52,7 +52,7 @@
         android:layout_width="1dip"
         android:layout_height="24dip"
         android:layout_gravity="center_vertical"
-        android:background="@drawable/abs__list_divider_holo_dark" />
+        android:background="@drawable/ic_divider_dashed_holo_dark" />
 
     <ImageButton
         android:id="@+id/deleteButton"

@@ -29,10 +29,10 @@ import android.content.ServiceConnection;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.v7.app.AppCompatActivity;
 import android.text.TextUtils;
 import android.view.KeyEvent;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.csipsimple.R;
 import com.csipsimple.api.ISipService;
 import com.csipsimple.api.SipManager;
@@ -42,7 +42,7 @@ import com.csipsimple.utils.Log;
 import com.csipsimple.utils.PreferencesProviderWrapper;
 import com.csipsimple.utils.UriUtils;
 
-public class OutgoingCallChooser extends SherlockFragmentActivity {
+public class OutgoingCallChooser extends AppCompatActivity {
 
 
     private static final String THIS_FILE = "OutgoingCallChooser";

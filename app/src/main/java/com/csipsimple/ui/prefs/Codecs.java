@@ -41,7 +41,7 @@ import com.csipsimple.utils.Log;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Codecs extends SherlockFragmentActivity {
+public class Codecs extends AppCompatActivity {
 
 	protected static final String THIS_FILE = "Codecs";
     private ViewPager mViewPager;

@@ -31,6 +31,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.CallLog;
 import android.provider.CallLog.Calls;
+import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -41,7 +42,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockFragment;
 import com.csipsimple.R;
 import com.csipsimple.api.SipManager;
 import com.csipsimple.api.SipProfile;
@@ -59,7 +59,7 @@ import com.csipsimple.widgets.AccountChooserButton;
  * or with the {@link #EXTRA_CALL_LOG_IDS} extra to specify a group of call log
  * entries.
  */
-public class CallLogDetailsFragment extends SherlockFragment {
+public class CallLogDetailsFragment extends Fragment {
 
     private static final String THIS_FILE = "CallLogDetailsFragment";
     /** A long array extra containing ids of call log entries to display. */

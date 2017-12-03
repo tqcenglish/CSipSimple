@@ -82,7 +82,7 @@ import java.util.ArrayList;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class InCallActivity extends SherlockFragmentActivity implements IOnCallActionTrigger, 
+public class InCallActivity extends AppCompatActivity implements IOnCallActionTrigger,
         IOnLeftRightChoice, ProximityDirector, OnDtmfListener {
     private static final int QUIT_DELAY = 3000;
     private final static String THIS_FILE = "InCallActivity";
