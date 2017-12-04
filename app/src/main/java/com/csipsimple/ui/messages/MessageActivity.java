@@ -23,9 +23,9 @@
 package com.csipsimple.ui.messages;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.view.MenuItem;
 
-import com.actionbarsherlock.app.SherlockFragmentActivity;
-import com.actionbarsherlock.view.MenuItem;
 import com.csipsimple.ui.messages.MessageFragment.OnQuitListener;
 import com.csipsimple.utils.Compatibility;
 

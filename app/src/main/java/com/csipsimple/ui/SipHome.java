@@ -22,6 +22,7 @@
 package com.csipsimple.ui;
 
 import android.animation.ObjectAnimator;
+import android.animation.ValueAnimator;
 import android.app.AlertDialog;
 import android.content.ComponentName;
 import android.content.Context;
@@ -41,10 +42,11 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
-import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.AppCompatActivity;
+
 import android.text.TextUtils;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewParent;
@@ -140,19 +142,19 @@ public class SipHome extends AppCompatActivity implements OnWarningChanged {
 
         
 
-        Tab dialerTab = ab.newTab()
+        ActionBar.Tab dialerTab = ab.newTab()
                  .setContentDescription(R.string.dial_tab_name_text)
                 .setIcon(R.drawable.ic_ab_dialer_holo_dark);
-        Tab callLogTab = ab.newTab()
+        ActionBar.Tab callLogTab = ab.newTab()
                  .setContentDescription(R.string.calllog_tab_name_text)
                 .setIcon(R.drawable.ic_ab_history_holo_dark);
-        Tab favoritesTab = null;
+        ActionBar.Tab favoritesTab = null;
         if(CustomDistribution.supportFavorites()) {
             favoritesTab = ab.newTab()
                     .setContentDescription(R.string.favorites_tab_name_text)
                     .setIcon(R.drawable.ic_ab_favourites_holo_dark);
         }
-        Tab messagingTab = null;
+        ActionBar.Tab messagingTab = null;
         if (CustomDistribution.supportMessaging()) {
             messagingTab = ab.newTab()
                     .setContentDescription(R.string.messages_tab_name_text)
@@ -276,7 +278,7 @@ public class SipHome extends AppCompatActivity implements OnWarningChanged {
         }
 
         @Override
-        public void onTabSelected(Tab tab, FragmentTransaction ft) {
+        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
             clearDetails();
             if (mViewPager.getCurrentItem() != tab.getPosition()) {
                 mViewPager.setCurrentItem(tab.getPosition(), true);
@@ -296,12 +298,12 @@ public class SipHome extends AppCompatActivity implements OnWarningChanged {
         }
 
         @Override
-        public void onTabReselected(Tab tab, FragmentTransaction ft) {
+        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
             // Nothing to do
         }
 
         @Override
-        public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
             // Nothing to do
         }
 
@@ -698,7 +700,7 @@ public class SipHome extends AppCompatActivity implements OnWarningChanged {
             String callAction = intent.getAction();
             if (!TextUtils.isEmpty(callAction)) {
                 ActionBar ab = getSupportActionBar();
-                Tab toSelectTab = null;
+                ActionBar.Tab toSelectTab = null;
                 Integer toSelectId = null;
                 if (callAction.equalsIgnoreCase(SipManager.ACTION_SIP_DIALER)
                         || callAction.equalsIgnoreCase(Intent.ACTION_DIAL)

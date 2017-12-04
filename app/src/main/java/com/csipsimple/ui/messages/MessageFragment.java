@@ -33,6 +33,7 @@ import android.net.Uri.Builder;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
+import android.support.v4.app.ListFragment;
 import android.support.v4.app.LoaderManager;
 import android.support.v4.content.CursorLoader;
 import android.support.v4.content.Loader;
@@ -40,6 +41,9 @@ import android.text.TextUtils;
 import android.view.ContextMenu;
 import android.view.ContextMenu.ContextMenuInfo;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
@@ -49,11 +53,6 @@ import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockListFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.view.MenuItem.OnMenuItemClickListener;
 import com.csipsimple.R;
 import com.csipsimple.api.ISipService;
 import com.csipsimple.api.SipMessage;
@@ -69,7 +68,7 @@ import com.csipsimple.utils.clipboard.ClipboardWrapper;
 import com.csipsimple.utils.contacts.ContactsWrapper;
 import com.csipsimple.widgets.AccountChooserButton;
 
-public class MessageFragment extends SherlockListFragment implements LoaderManager.LoaderCallbacks<Cursor>, OnClickListener {
+public class MessageFragment extends ListFragment implements LoaderManager.LoaderCallbacks<Cursor>, OnClickListener {
     private static final String THIS_FILE = "ComposeMessage";
     private String remoteFrom;
     private TextView fromText;
@@ -318,7 +317,7 @@ public class MessageFragment extends SherlockListFragment implements LoaderManag
         int actionRoom = getResources().getBoolean(R.bool.menu_in_bar) ? MenuItem.SHOW_AS_ACTION_IF_ROOM : MenuItem.SHOW_AS_ACTION_NEVER;
         MenuItem addContactMenu = menu.add(R.string.menu_add_to_contacts);
         addContactMenu.setIcon(R.drawable.ic_add_contact_holo_dark).setShowAsAction(actionRoom);
-        addContactMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+        addContactMenu.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 Intent it = ContactsWrapper.getInstance().getAddContactIntent(null, remoteFrom);

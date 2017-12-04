@@ -26,19 +26,19 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.DialogInterface.OnClickListener;
 import android.os.Bundle;
+import android.support.v4.app.DialogFragment;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockDialogFragment;
 import com.csipsimple.R;
 import com.csipsimple.utils.Log;
 import com.csipsimple.widgets.Dialpad;
 import com.csipsimple.widgets.Dialpad.OnDialKeyListener;
 
-public class DtmfDialogFragment extends SherlockDialogFragment implements OnDialKeyListener {
+public class DtmfDialogFragment extends DialogFragment implements OnDialKeyListener {
 
 
     private static final String EXTRA_CALL_ID = "call_id";
@@ -95,10 +95,10 @@ public class DtmfDialogFragment extends SherlockDialogFragment implements OnDial
             sb.append(nbr);
             dialPadTextView.setText(sb.toString());
         }
-        if(getSherlockActivity() instanceof OnDtmfListener) {
+        if(getActivity() instanceof OnDtmfListener) {
             Integer callId = getArguments().getInt(EXTRA_CALL_ID);
             if(callId != null) {
-                ((OnDtmfListener) getSherlockActivity()).OnDtmf(callId, keyCode, dialTone);
+                ((OnDtmfListener) getActivity()).OnDtmf(callId, keyCode, dialTone);
             }else {
                 Log.w(THIS_FILE, "Impossible to find the call associated to this view");
             }

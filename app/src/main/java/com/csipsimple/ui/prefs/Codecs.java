@@ -30,10 +30,9 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.AppCompatActivity;
 
-import com.actionbarsherlock.app.ActionBar;
-import com.actionbarsherlock.app.ActionBar.Tab;
-import com.actionbarsherlock.app.SherlockFragmentActivity;
 import com.csipsimple.R;
 import com.csipsimple.api.SipConfigManager;
 import com.csipsimple.utils.Log;
@@ -65,23 +64,23 @@ public class Codecs extends AppCompatActivity {
         useCodecsPerSpeed = SipConfigManager.getPreferenceBooleanValue(this, SipConfigManager.CODECS_PER_BANDWIDTH);
         showVideoCodecs   = SipConfigManager.getPreferenceBooleanValue(this, SipConfigManager.USE_VIDEO);
         if(useCodecsPerSpeed) {
-            Tab audioNb = ab.newTab().setText( R.string.slow ).setIcon(R.drawable.ic_prefs_media);
-            Tab audioWb = ab.newTab().setText( R.string.fast ).setIcon(R.drawable.ic_prefs_media);
+            ActionBar.Tab audioNb = ab.newTab().setText( R.string.slow ).setIcon(R.drawable.ic_prefs_media);
+            ActionBar.Tab audioWb = ab.newTab().setText( R.string.fast ).setIcon(R.drawable.ic_prefs_media);
             tabAdapter.addTab(audioWb, CodecsFragment.class);
             tabAdapter.addTab(audioNb, CodecsFragment.class);
             if(showVideoCodecs) {
-                Tab videoNb = ab.newTab().setText( R.string.slow ).setIcon(R.drawable.ic_prefs_media_video);
-                Tab videoWb = ab.newTab().setText( R.string.fast ).setIcon(R.drawable.ic_prefs_media_video);
+                ActionBar.Tab videoNb = ab.newTab().setText( R.string.slow ).setIcon(R.drawable.ic_prefs_media_video);
+                ActionBar.Tab videoWb = ab.newTab().setText( R.string.fast ).setIcon(R.drawable.ic_prefs_media_video);
                 
                 tabAdapter.addTab(videoWb, CodecsFragment.class);
                 tabAdapter.addTab(videoNb, CodecsFragment.class);
             }
         }else {
-            Tab audioTab = ab.newTab().setIcon(R.drawable.ic_prefs_media);
+            ActionBar.Tab audioTab = ab.newTab().setIcon(R.drawable.ic_prefs_media);
             tabAdapter.addTab(audioTab, CodecsFragment.class);
             
             if(showVideoCodecs) {
-                Tab videoTab = ab.newTab().setIcon(R.drawable.ic_prefs_media_video);
+                ActionBar.Tab videoTab = ab.newTab().setIcon(R.drawable.ic_prefs_media_video);
                 tabAdapter.addTab(videoTab, CodecsFragment.class);
             }
         }
@@ -141,19 +140,19 @@ public class Codecs extends AppCompatActivity {
 
 
         @Override
-        public void onTabReselected(Tab tab, FragmentTransaction ft) {
+        public void onTabReselected(ActionBar.Tab tab, FragmentTransaction ft) {
             // Nothing to do
         }
 
         @Override
-        public void onTabSelected(Tab tab, FragmentTransaction ft) {
+        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
             if (mViewPager.getCurrentItem() != tab.getPosition()) {
                 mViewPager.setCurrentItem(tab.getPosition(), true);
             }
         }
 
         @Override
-        public void onTabUnselected(Tab tab, FragmentTransaction ft) {
+        public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
             // Nothing to do
         }
 

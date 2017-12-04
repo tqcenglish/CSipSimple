@@ -26,18 +26,16 @@
 package com.csipsimple.ui.incall;
 
 import android.content.Context;
+import android.support.v7.view.menu.MenuBuilder;
+import android.support.v7.view.menu.MenuItemImpl;
+import android.support.v7.view.menu.MenuView;
+import android.support.v7.widget.ActionMenuView;
 import android.util.AttributeSet;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.FrameLayout;
 
-import com.actionbarsherlock.internal.view.menu.ActionMenuPresenter;
-import com.actionbarsherlock.internal.view.menu.ActionMenuView;
-import com.actionbarsherlock.internal.view.menu.MenuBuilder;
-import com.actionbarsherlock.internal.view.menu.MenuBuilder.Callback;
-import com.actionbarsherlock.internal.view.menu.MenuItemImpl;
-import com.actionbarsherlock.internal.view.menu.MenuView;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
 import com.csipsimple.R;
 import com.csipsimple.api.MediaState;
 import com.csipsimple.api.SipCallSession;
@@ -47,7 +45,7 @@ import com.csipsimple.utils.Log;
 /**
  * Manages in call controls not relative to a particular call such as media route
  */
-public class InCallControls extends FrameLayout implements Callback {
+public class InCallControls extends FrameLayout implements MenuBuilder.Callback {
 
 	private static final String THIS_FILE = "InCallControls";
 	IOnCallActionTrigger onTriggerListener;
@@ -73,30 +71,30 @@ public class InCallControls extends FrameLayout implements Callback {
             supportMultipleCalls = SipConfigManager.getPreferenceBooleanValue(getContext(), SipConfigManager.SUPPORT_MULTIPLE_CALLS, false);
         }
         
-        final FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT,
-                (int) getResources().getDimension(R.dimen.incall_bottom_bar_height));
-        ActionMenuPresenter mActionMenuPresenter = new ActionMenuPresenter(getContext()) {
-            public void bindItemView(MenuItemImpl item, MenuView.ItemView itemView) {
-                super.bindItemView(item, itemView);
-                View actionItemView = (View) itemView;
-                actionItemView.setBackgroundResource(R.drawable.btn_compound_background);
-            }
-        };
-        mActionMenuPresenter.setReserveOverflow(true);
-        // Full width
-        mActionMenuPresenter.setWidthLimit(
-                getContext().getResources().getDisplayMetrics().widthPixels, true);
-        // We use width limit, no need to limit items.
-        mActionMenuPresenter.setItemLimit(20);
-        btnMenuBuilder = new MenuBuilder(getContext());
-        btnMenuBuilder.setCallback(this);
-        MenuInflater inflater = new MenuInflater(getContext());
-        inflater.inflate(R.menu.in_call_controls_menu, btnMenuBuilder);
-        btnMenuBuilder.addMenuPresenter(mActionMenuPresenter);
-        ActionMenuView menuView = (ActionMenuView) mActionMenuPresenter.getMenuView(this);
-        menuView.setBackgroundResource(R.drawable.abs__ab_bottom_transparent_dark_holo);
-        
-        this.addView(menuView, layoutParams);
+//        final FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT,
+//                (int) getResources().getDimension(R.dimen.incall_bottom_bar_height));
+//        ActionMenuPresenter mActionMenuPresenter = new ActionMenuPresenter(getContext()) {
+//            public void bindItemView(MenuItemImpl item, MenuView.ItemView itemView) {
+//                super.bindItemView(item, itemView);
+//                View actionItemView = (View) itemView;
+//                actionItemView.setBackgroundResource(R.drawable.btn_compound_background);
+//            }
+//        };
+//        mActionMenuPresenter.setReserveOverflow(true);
+//        // Full width
+//        mActionMenuPresenter.setWidthLimit(
+//                getContext().getResources().getDisplayMetrics().widthPixels, true);
+//        // We use width limit, no need to limit items.
+//        mActionMenuPresenter.setItemLimit(20);
+//        btnMenuBuilder = new MenuBuilder(getContext());
+//        btnMenuBuilder.setCallback(this);
+//        MenuInflater inflater = new MenuInflater(getContext());
+//        inflater.inflate(R.menu.in_call_controls_menu, btnMenuBuilder);
+//        btnMenuBuilder.addMenuPresenter(mActionMenuPresenter);
+//        ActionMenuView menuView = (ActionMenuView) mActionMenuPresenter.getMenuView(this);
+//        menuView.setBackgroundResource(R.drawable.abs__ab_bottom_transparent_dark_holo);
+//
+//        this.addView(menuView, layoutParams);
     }
     
 	@Override

@@ -21,10 +21,14 @@
 
 package com.csipsimple.ui.prefs.cupcake;
 
+import android.app.ListActivity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
@@ -32,10 +36,6 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
-import com.actionbarsherlock.app.SherlockListActivity;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
 import com.csipsimple.R;
 import com.csipsimple.api.SipManager;
 import com.csipsimple.ui.prefs.PrefsFilters;
@@ -46,7 +46,7 @@ import com.csipsimple.utils.PreferencesWrapper;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainPrefs extends SherlockListActivity {
+public class MainPrefs extends ListActivity {
 	
 	private static final String THIS_FILE = "Main prefs";
 	private PrefGroupAdapter adapter;
@@ -147,7 +147,7 @@ public class MainPrefs extends SherlockListActivity {
 	
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getSupportMenuInflater();
+        MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.main_prefs, menu);
 		return super.onCreateOptionsMenu(menu);
 	}

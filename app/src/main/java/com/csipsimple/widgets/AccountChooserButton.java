@@ -117,7 +117,7 @@ public class AccountChooserButton extends LinearLayout implements OnClickListene
         textView = (TextView) findViewById(R.id.quickaction_text);
         imageView = (ImageView) findViewById(R.id.quickaction_icon);
 
-//        mMenuBuilder = new MenuBuilder(getContext());
+        mMenuBuilder = new MenuBuilder(getContext());
         
         // Init accounts
         setAccount(null);
@@ -208,7 +208,7 @@ public class AccountChooserButton extends LinearLayout implements OnClickListene
 //            mPopupMenu = new MenuPopupHelper(getContext(), mMenuBuilder, this, false);
 //            mPopupMenu.setForceShowIcon(true);
 //        }
-//        mMenuBuilder.removeGroup(R.id.menu_accbtn_accounts);
+        mMenuBuilder.removeGroup(R.id.menu_accbtn_accounts);
 
         Cursor c = getContext().getContentResolver().query(SipProfile.ACCOUNT_URI, ACC_PROJECTION, SipProfile.FIELD_ACTIVE + "=?", new String[] {
                 "1"
@@ -467,8 +467,7 @@ public class AccountChooserButton extends LinearLayout implements OnClickListene
     }
     
     public MenuItem addExtraMenuItem(int titleRes) {
-//        return mMenuBuilder.add(R.id.menu_accbtn_extras, MenuBuilder.NONE, 100, titleRes);
-        return null;
+        return mMenuBuilder.add(R.id.menu_accbtn_extras, MenuBuilder.NONE, 100, titleRes);
     }
 
 }

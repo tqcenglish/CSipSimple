@@ -21,6 +21,7 @@
 
 package com.csipsimple.widgets;
 
+import android.app.ListActivity;
 import android.appwidget.AppWidgetManager;
 import android.content.Context;
 import android.content.Intent;
@@ -31,7 +32,6 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 
-import com.actionbarsherlock.app.SherlockListActivity;
 import com.csipsimple.R;
 import com.csipsimple.api.SipManager;
 import com.csipsimple.utils.Log;
@@ -41,7 +41,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ShortcutWidgetConfigure extends SherlockListActivity {
+public class ShortcutWidgetConfigure extends ListActivity {
 
 	private static final String WIDGET_PREFS = "widget_shortcut_prefs";
     private static final String THIS_FILE = "ShortcutWidgetConfigure";
