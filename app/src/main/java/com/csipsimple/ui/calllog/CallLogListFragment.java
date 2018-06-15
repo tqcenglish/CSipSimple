@@ -153,10 +153,10 @@ public class CallLogListFragment extends CSSListFragment implements ViewPagerVis
             mShowOptionsMenu = visible;
             // Invalidate the options menu since we are changing the list of
             // options shown in it.
-            AppCompatActivity activity = getActivity();
-            if (activity != null) {
-                activity.invalidateOptionsMenu();
-            }
+//            AppCompatActivity activity = getActivity();
+//            if (activity != null) {
+//                activity.invalidateOptionsMenu();
+//            }
         }
         
 
@@ -291,7 +291,7 @@ public class CallLogListFragment extends CSSListFragment implements ViewPagerVis
             if(accId != null) {
                 it.putExtra(SipProfile.FIELD_ACC_ID, accId);
             }
-            getActivity().startActivity(it);
+//            getActivity().startActivity(it);
         }
     }
 
@@ -300,7 +300,7 @@ public class CallLogListFragment extends CSSListFragment implements ViewPagerVis
     
     private void turnOnActionMode() {
         Log.d(THIS_FILE, "Long press");
-        mMode = getSherlockActivity().startActionMode(new CallLogActionMode());
+        mMode = getActivity().startActionMode(new CallLogActionMode());
         ListView lv = getListView();
         lv.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         
@@ -311,7 +311,7 @@ public class CallLogListFragment extends CSSListFragment implements ViewPagerVis
         @Override
         public boolean onCreateActionMode(ActionMode mode, Menu menu) {
             Log.d(THIS_FILE, "onCreateActionMode");
-            getSherlockActivity().getSupportMenuInflater().inflate(R.menu.call_log_menu, menu);
+            getActivity().getMenuInflater().inflate(R.menu.call_log_menu, menu);
             return true;
         }
 

@@ -21,6 +21,7 @@
 
 package com.csipsimple.ui.dialpad;
 
+import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.PendingIntent.CanceledException;
@@ -31,11 +32,14 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
 import android.net.Uri;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
 import android.os.RemoteException;
-import android.support.v4.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.content.ContextCompat;
 import android.telephony.PhoneNumberFormattingTextWatcher;
 import android.telephony.PhoneNumberUtils;
 import android.telephony.TelephonyManager;
@@ -46,6 +50,9 @@ import android.text.TextWatcher;
 import android.text.method.DialerKeyListener;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.View.OnKeyListener;
@@ -61,11 +68,6 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.TextView.OnEditorActionListener;
 
-import com.actionbarsherlock.app.SherlockFragment;
-import com.actionbarsherlock.view.Menu;
-import com.actionbarsherlock.view.MenuInflater;
-import com.actionbarsherlock.view.MenuItem;
-import com.actionbarsherlock.view.MenuItem.OnMenuItemClickListener;
 import com.csipsimple.R;
 import com.csipsimple.api.ISipService;
 import com.csipsimple.api.SipCallSession;
@@ -90,7 +92,7 @@ import com.csipsimple.widgets.DialerCallBar.OnDialActionListener;
 import com.csipsimple.widgets.Dialpad;
 import com.csipsimple.widgets.Dialpad.OnDialKeyListener;
 
-public class DialerFragment extends SherlockFragment implements OnClickListener, OnLongClickListener,
+public class DialerFragment extends Fragment implements OnClickListener, OnLongClickListener,
         OnDialKeyListener, TextWatcher, OnDialActionListener, ViewPagerVisibilityListener, OnKeyListener,
         OnAutoCompleteListVisibilityChangedListener {
 
@@ -207,7 +209,7 @@ public class DialerFragment extends SherlockFragment implements OnClickListener,
         
         accountChooserFilterItem = accountChooserButton.addExtraMenuItem(R.string.apply_rewrite);
         accountChooserFilterItem.setCheckable(true);
-        accountChooserFilterItem.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+        accountChooserFilterItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 setRewritingFeature(!accountChooserFilterItem.isChecked());
@@ -573,7 +575,7 @@ public class DialerFragment extends SherlockFragment implements OnClickListener,
         //        : R.drawable.ic_menu_switch_digit);
 
         // Invalidate to ask to require the text button to a digit button
-        getSherlockActivity().supportInvalidateOptionsMenu();
+        // getActivity().supportInvalidateOptionsMenu();
     }
     
     private boolean hasAutocompleteList() {
@@ -629,7 +631,7 @@ public class DialerFragment extends SherlockFragment implements OnClickListener,
         delMenu.setIcon(
                 isDigit ? R.drawable.ic_menu_switch_txt
                         : R.drawable.ic_menu_switch_digit).setShowAsAction( action );
-        delMenu.setOnMenuItemClickListener(new OnMenuItemClickListener() {
+        delMenu.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 setTextDialing(isDigit);
@@ -777,7 +779,12 @@ public class DialerFragment extends SherlockFragment implements OnClickListener,
             // Case gsm voice mail
             TelephonyManager tm = (TelephonyManager) getActivity().getSystemService(
                     Context.TELEPHONY_SERVICE);
-            String vmNumber = tm.getVoiceMailNumber();
+            String vmNumber="";
+            if( Build.VERSION.SDK_INT >= 23 && ContextCompat.checkSelfPermission(this.getContext(), Manifest.permission.READ_VOICEMAIL) == PackageManager.PERMISSION_GRANTED){
+                vmNumber = tm.getVoiceMailNumber();
+            }else{
+                vmNumber = tm.getVoiceMailNumber();
+            }
 
             if (!TextUtils.isEmpty(vmNumber)) {
                 if(service != null) {
@@ -864,10 +871,10 @@ public class DialerFragment extends SherlockFragment implements OnClickListener,
             // != autoCompleteFragment) {
             // Execute a transaction, replacing any existing fragment
             // with this one inside the frame.
-            FragmentTransaction ft = getFragmentManager().beginTransaction();
-            ft.replace(R.id.details, autoCompleteFragment, TAG_AUTOCOMPLETE_SIDE_FRAG);
-            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
-            ft.commitAllowingStateLoss();
+//            FragmentTransaction ft = getFragmentManager().beginTransaction();
+//            ft.replace(R.id.details, autoCompleteFragment, TAG_AUTOCOMPLETE_SIDE_FRAG);
+//            ft.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+//            ft.commitAllowingStateLoss();
         
             // }
         }

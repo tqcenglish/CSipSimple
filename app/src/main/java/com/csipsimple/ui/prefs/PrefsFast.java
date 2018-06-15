@@ -22,18 +22,18 @@
 package com.csipsimple.ui.prefs;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.RadioButton;
 
-import com.actionbarsherlock.app.SherlockActivity;
 import com.csipsimple.R;
 import com.csipsimple.api.SipConfigManager;
 import com.csipsimple.utils.PreferencesWrapper;
 
-public class PrefsFast extends SherlockActivity implements OnClickListener {
+public class PrefsFast extends AppCompatActivity implements OnClickListener {
 	
 	private CheckBox globIntegrate;
 	private RadioButton globProfileAlways;
